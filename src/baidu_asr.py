@@ -13,6 +13,9 @@ CHANNELS = 1  #1是单声道，2是双声道。
 RATE = 16000  # 采样率，调用API一般为8000或16000
 RECORD_SECONDS = 5  # 录制时间
 
+# 获取当前脚本文件的路径
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
 
 def save_wave_file(pa, filepath, data):
     wf = wave.open(filepath, 'wb')
@@ -31,7 +34,10 @@ def get_audio(filepath):
                      input=True,
                      frames_per_buffer=CHUNK)
     print("*" * 10, "开始录音：请在5秒内输入语音")
-    os.system('paplay snowboy/examples/Python3/resources/ding.wav --no-remap')
+    relative_path = "./snowboy/examples/Python3/resources/ding.wav"
+    absolute_path = os.path.normpath(os.path.join(script_dir, relative_path))
+    # 执行shell脚本
+    os.system(f'paplay {absolute_path} --no-remap')
 
     frames = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):

@@ -12,9 +12,9 @@ cd _install
 python3.9 -m venv snowboy_venv
 source snowboy_venv/bin/activate
 pip install pyaudio
-deactivate
+# deactivate
 
-# ===baidu===
+# ===baidu asr===
 pip install baidu-aip
 pip install playsound
 pip install chardet
@@ -23,4 +23,10 @@ pip install chardet
 python3 -m venv chatgpt_cli
 source chatgpt_cli/bin/activate
 pip install shell-gpt
+
+# ===baidu tts===
+pip install baidu-aip
+pip install playsound
+pip install chardet
+
 deactivate

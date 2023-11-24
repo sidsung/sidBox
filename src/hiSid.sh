@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# 获取脚本文件的所在目录
+script_dir=$(dirname "$0")
+
 rm -rf /tmp/sidBox
 mkdir /tmp/sidBox
 
 echo "Start record and save asr result to /tmp/sidBox/output.wav.txt"
-python3 baidu_asr.py
+python3 $script_dir/baidu_asr.py
 
 # Function to split text into chunks of at most 1024 bytes
 split_text() {
@@ -27,7 +30,7 @@ split_text() {
 
 echo "======chat with chatgpt====="
 echo "sgpt "$(cat /tmp/sidBox/output.wav.txt)""
-source ../_install/chatgpt_cli/bin/activate
+source $script_dir/../_install/chatgpt_cli/bin/activate
 
 # Run chatgpt and save the response to a temporary file
 sgpt "$(cat /tmp/sidBox/output.wav.txt)(回复少于1024字节且不加换行)" | tee /tmp/sidBox/response.txt
@@ -41,7 +44,7 @@ split_text "/tmp/sidBox/response.txt" "/tmp/sidBox/response_chunk"
 # Start TTS for each chunk and play the sound
 for file in /tmp/sidBox/response_chunk*.merged.txt; do
     echo "Start TTS for $file"
-    python3 baidu_tts.py "$file" "${file%.*}.wav"
+    python3 $script_dir/baidu_tts.py "$file" "${file%.*}.wav"
     echo "Play the sound for $file"
     paplay "${file%.*}.wav" --no-remap
 done
