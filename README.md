@@ -1,0 +1,2 @@
+# sidBox
+sidBox smart speaker
