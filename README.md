@@ -27,8 +27,8 @@ play test.wav
 ```
 
 - 运行
-```python
-python3 demo.py hiSid.pmdl
+```shell
+python3 demo.py snowboy.pmdl
 ```
 - 如果脚本报错可能需要升级pyaudio版本（由于python3.10的某个重大更新）
 - 升级pyaudio为0.2.12及以上
@@ -39,15 +39,36 @@ pip install --upgrade pyaudio
 ```shell
 sudo apt install python3.9
 
-python3.9 -m venv sidBox_cli
+python3.9 -m venv snowboy_venv
 python3 -m pip install --upgrade pip setuptools wheel
 
 ```
 
-## baidu_tts
+## baidu asr and tts
 ### install
 ```shell
 pip install baidu-aip	# 百度的接口
 pip install playsound
 pip install chardet
+```
+
+# shell gpt
+### install
+```shell
+python3 -m venv chatgpt_cli
+source chatgpt_cli/bin/activate
+pip install shell-gpt
+```
+### api key
+- 需要在环境变量中设置自己openai api key
+```shell
+vim ~/.bashrc
+export OPENAI_API_KEY=
+source ~/.bashrc
+```
+### 测试
+```shell
+source chatgpt_cli/bin/activate
+sgpt "hi"
+Hello! How can I assist you today?
 ```
