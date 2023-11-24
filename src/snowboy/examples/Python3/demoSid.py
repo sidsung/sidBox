@@ -18,7 +18,7 @@ def interrupt_callback():
 def callback_function():
     # Play the audio file
     print('paplay wozai.wav')
-    os.system('paplay /home/sidsung/whisper/baidu_tts/audio_files/wozai5s.wav --no-remap')
+    os.system('paplay ../../../../audio/wozai5s.wav --no-remap')
 
     # Check if the script is running
     if os.system('pgrep -f hiSid.sh') == 0:

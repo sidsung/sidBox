@@ -31,7 +31,7 @@ def get_audio(filepath):
                      input=True,
                      frames_per_buffer=CHUNK)
     print("*" * 10, "开始录音：请在5秒内输入语音")
-    os.system('paplay ~/whisper/snowboy/examples/Python3/resources/ding.wav --no-remap')
+    os.system('paplay snowboy/examples/Python3/resources/ding.wav --no-remap')
 
     frames = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
