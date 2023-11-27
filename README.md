@@ -5,10 +5,26 @@ sidBox smart speaker
 |-|-|-|-|
 |snowboy|baidu_asr|shellgpt|baidu_tts|
 
-## device info
+# Device info
 - orangePi 5 plus
 - 第三方Ubuntu22系统
 
+# How to use
+## install
+```shell
+./install.sh
+```
+## api keys
+- 需要在环境变量中设置`open ai`和`百度`的`api key`等信息
+## run
+```shell
+./start
+Listening... Press Ctrl+C to exit
+```
+- 启动后对着麦克风说 `"hi sid"` 唤醒设备
+- 唤醒设备后在嘀声后5秒内输入语音
+
+# Details
 ## snowboy
 ### 编译
 - 修改Python3目录下的Makefile，使其调用`aarch64`目录下的动态库

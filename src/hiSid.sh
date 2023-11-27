@@ -30,7 +30,7 @@ split_text() {
 
 echo "======chat with chatgpt====="
 echo "sgpt "$(cat /tmp/sidBox/output.wav.txt)""
-source $script_dir/../_install/chatgpt_cli/bin/activate
+# source $script_dir/../_install/sidBox_venv/bin/activate
 
 # Run chatgpt and save the response to a temporary file
 sgpt "$(cat /tmp/sidBox/output.wav.txt)(回复少于1024字节且不加换行)" | tee /tmp/sidBox/response.txt
