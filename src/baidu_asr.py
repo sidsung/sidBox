@@ -4,9 +4,15 @@ import json
 from aip import AipSpeech
 import os
 
-APP_ID = ''
-API_KEY = ''
-SECRET_KEY = ''
+# 获取环境变量值，如果不存在则使用默认值
+APP_ID = os.environ.get('APP_ID', 'default_app_id')
+API_KEY = os.environ.get('API_KEY', 'default_api_key')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default_secret_key')
+
+print(f"APP_ID: {APP_ID}")
+print(f"API_KEY: {API_KEY}")
+print(f"SECRET_KEY: {SECRET_KEY}")
+
 CHUNK = 1024
 FORMAT = pyaudio.paInt16  # 16位深
 CHANNELS = 1  #1是单声道，2是双声道。

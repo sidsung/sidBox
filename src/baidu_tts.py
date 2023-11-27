@@ -1,10 +1,12 @@
 import sys
 from aip import AipSpeech # 导入api接口
+import os
 
-""" 你自己的 APPID AK SK """
-APP_ID = ''
-API_KEY = ''
-SECRET_KEY = ''
+# 获取环境变量值，如果不存在则使用默认值
+APP_ID = os.environ.get('APP_ID', 'default_app_id')
+API_KEY = os.environ.get('API_KEY', 'default_api_key')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default_secret_key')
+
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
 response_file = sys.argv[1]  # 获取Shell脚本传递的参数，即文本文件名

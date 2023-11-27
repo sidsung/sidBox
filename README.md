@@ -51,6 +51,15 @@ pip install baidu-aip	# 百度的接口
 pip install playsound
 pip install chardet
 ```
+### api key
+- 需要在环境变量中设置自己baidu api key等信息
+```shell
+vim ~/.bashrc
+export APP_ID=''
+export API_KEY=''
+export SECRET_KEY=''
+source ~/.bashrc
+```
 
 # shell gpt
 ### install
